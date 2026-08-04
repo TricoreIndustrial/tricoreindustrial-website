@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TriCore Industrial</title>
+<meta name="description" content="Industrial cleaning, protective coatings, and surface restoration across the Carolinas.">
+<style>
+:root{
+  --bg:#06101c;--bg2:#0a1a2b;--blue:#2589ff;--blue2:#69b4ff;
+  --white:#f8fbff;--muted:#a8b5c4;--line:rgba(255,255,255,.13)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1160px,calc(100% - 32px));margin:auto}
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue2));width:0;z-index:2000}
+header{position:fixed;top:0;left:0;right:0;height:78px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;background:rgba(4,10,18,.7);backdrop-filter:blur(14px);z-index:1000;border-bottom:1px solid transparent;transition:.3s}
+header.scrolled{height:68px;background:rgba(4,10,18,.95);border-color:var(--line)}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:48px;height:48px;filter:drop-shadow(0 0 12px rgba(37,137,255,.35))}
+.brandtext{line-height:.9}
+.brandtext b{display:block;font-size:25px;letter-spacing:.05em}
+.brandtext span{font-size:10px;letter-spacing:.34em;color:#aeb9c8}
+nav{display:flex;gap:26px;align-items:center;font-size:14px;font-weight:700}
+nav a{position:relative}
+nav a:not(.cta):after{content:"";position:absolute;height:2px;left:0;right:100%;bottom:-6px;background:var(--blue);transition:.25s}
+nav a:hover:after{right:0}
+.cta{background:linear-gradient(135deg,#126dce,#2d99ff);padding:12px 17px;border-radius:4px}
+.menu{display:none;background:none;border:0;color:white;font-size:30px}
+.hero{min-height:930px;position:relative;display:flex;align-items:center;padding-top:80px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:
+linear-gradient(90deg,rgba(2,8,15,.97) 0%,rgba(2,8,15,.78) 48%,rgba(2,8,15,.25) 100%),
+url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=2200&q=90") center/cover no-repeat;
+transform:scale(1.15);animation:zoom 11s ease-out forwards}
+@keyframes zoom{to{transform:scale(1.02)}}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px;animation:gridmove 14s linear infinite}
+@keyframes gridmove{to{background-position:60px 60px}}
+.orb{position:absolute;border-radius:50%;filter:blur(4px);background:radial-gradient(circle,rgba(37,137,255,.35),transparent 65%);animation:float 6s ease-in-out infinite}
+.orb.a{width:430px;height:430px;right:-140px;top:120px}
+.orb.b{width:260px;height:260px;left:30%;bottom:120px;animation-delay:-2s}
+@keyframes float{50%{transform:translateY(35px) translateX(-18px) scale(1.07)}}
+.hero-inner{position:relative;z-index:3;padding-bottom:165px}
+.kicker{color:var(--blue2);text-transform:uppercase;letter-spacing:.2em;font-weight:800;font-size:13px}
+h1,h2,h3{font-family:Impact,"Arial Narrow",sans-serif;text-transform:uppercase;line-height:.95;margin:0}
+h1{font-size:clamp(54px,8vw,105px);max-width:950px;margin:18px 0 24px}
+.hero p.copy{max-width:650px;color:#d3dce7;font-size:19px;line-height:1.6}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-flex;min-height:53px;padding:0 24px;align-items:center;justify-content:center;border-radius:4px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;transition:.25s}
+.btn.primary{background:linear-gradient(135deg,#126dce,#2d99ff);box-shadow:0 18px 40px rgba(37,137,255,.28)}
+.btn.secondary{border:1px solid rgba(255,255,255,.45);background:rgba(0,0,0,.22)}
+.btn:hover{transform:translateY(-4px) scale(1.02)}
+.strip{position:absolute;bottom:0;left:0;right:0;z-index:4;display:grid;grid-template-columns:repeat(3,1fr);background:rgba(5,13,23,.92);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+.strip div{padding:25px 4vw;border-right:1px solid var(--line)}
+.strip strong{display:block;text-transform:uppercase;font-family:Impact,"Arial Narrow",sans-serif;font-size:22px}
+.strip span{display:block;color:var(--muted);font-size:13px}
+.marquee{white-space:nowrap;overflow:hidden;background:#071423;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.marquee-track{display:inline-flex;gap:28px;padding:16px 0;min-width:max-content;animation:marquee 18s linear infinite}
+.marquee-track span{font-family:Impact,"Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:19px}
+.marquee-track b{color:var(--blue)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+section{padding:105px 0;position:relative}
+.services{background:#f4f7fb;color:#0a1726}
+.section-head{display:grid;grid-template-columns:1.1fr .8fr;gap:70px;align-items:end;margin-bottom:45px}
+h2{font-size:clamp(42px,5vw,70px)}
+.section-head p{color:#536174;line-height:1.7}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;perspective:1100px}
+.card{background:white;border:1px solid #dce4ed;padding:34px;min-height:470px;box-shadow:0 18px 50px rgba(10,26,46,.08);position:relative;overflow:hidden;transition:.25s;transform-style:preserve-3d}
+.card:hover{transform:translateY(-10px) rotateX(2deg);box-shadow:0 30px 75px rgba(10,26,46,.2)}
+.card:after{content:"";position:absolute;bottom:0;left:0;right:0;height:6px;background:linear-gradient(90deg,#126dce,#38a4ff)}
+.card:before{content:"";position:absolute;inset:-40%;background:linear-gradient(115deg,transparent 42%,rgba(37,137,255,.12) 50%,transparent 58%);transform:translateX(-75%);transition:.65s}
+.card:hover:before{transform:translateX(75%)}
+.num{color:#7d8897;font-weight:800}
+.icon{width:58px;height:58px;border-radius:14px;background:#eaf4ff;color:#1474dc;display:grid;place-items:center;font-size:28px;margin:38px 0 24px}
+.card h3{font-size:31px}
+.card p,.card li{color:#566476;line-height:1.65}
+.industries{min-height:720px;background:linear-gradient(135deg,#0c1a2b,#06101c);overflow:hidden}
+.ind-bg{position:absolute;inset:0 0 0 48%;background:linear-gradient(90deg,#081524,rgba(8,21,36,.25)),url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=85") center/cover no-repeat;animation:pan 18s ease-in-out infinite alternate}
+@keyframes pan{to{transform:scale(1.08) translateX(-20px)}}
+.ind-inner{position:relative;z-index:2;display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}
+.ind-list{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.ind-list span{padding:24px 17px;border-bottom:1px solid var(--line);transition:.25s}
+.ind-list span:hover{padding-left:28px;background:rgba(37,137,255,.09);color:white}
+.safety{background:#091525}
+.safety-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.panel{padding:40px;background:linear-gradient(145deg,rgba(31,121,232,.18),rgba(255,255,255,.03));border:1px solid rgba(93,168,255,.25)}
+.points div{display:grid;grid-template-columns:70px 1fr;padding:26px 0;border-bottom:1px solid var(--line);align-items:center}
+.points b{color:var(--blue2);font-family:Impact,"Arial Narrow",sans-serif;font-size:28px}
+.about{background:#f4f7fb;color:#0a1726}
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px}
+.about p{color:#536174;font-size:18px;line-height:1.75;border-left:1px solid #cad4df;padding-left:20px}
+.contact{background:linear-gradient(135deg,#0b1d32,#06101c);overflow:hidden}
+.contact:before{content:"";position:absolute;inset:0;background-image:linear-gradient(120deg,transparent 0 45%,rgba(37,137,255,.05) 45% 46%,transparent 46%);background-size:220px 220px;animation:lines 14s linear infinite}
+@keyframes lines{to{background-position:220px -220px}}
+.contact-grid{position:relative;z-index:2;display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}
+form{padding:34px;background:rgba(255,255,255,.055);border:1px solid var(--line);backdrop-filter:blur(10px)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:grid;gap:8px;margin-bottom:16px;font-size:13px;font-weight:700}
+input,select,textarea{width:100%;padding:14px;border:1px solid rgba(255,255,255,.17);background:#091728;color:white;border-radius:3px;font:inherit;outline:none;transition:.2s}
+input:focus,select:focus,textarea:focus{border-color:var(--blue2);box-shadow:0 0 0 3px rgba(37,137,255,.14);transform:translateY(-1px)}
+footer{padding:32px 0;background:#030913;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.show{opacity:1;transform:none}
+.pulse{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 10px rgba(37,137,255,0),0 18px 50px rgba(37,137,255,.35)}}
+@media(max-width:900px){
+  nav{display:none;position:fixed;top:78px;left:0;right:0;flex-direction:column;align-items:stretch;padding:22px;background:#06101d;border-bottom:1px solid var(--line)}
+  nav.open{display:flex;animation:drop .25s ease}
+  @keyframes drop{from{opacity:0;transform:translateY(-10px)}}
+  .menu{display:block}
+  .hero{min-height:930px}
+  .hero-inner{padding-bottom:190px}
+  .strip{grid-template-columns:1fr}
+  .strip div{padding:14px 22px}
+  .section-head,.ind-inner,.safety-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:36px}
+  .cards{grid-template-columns:1fr}
+  .card{min-height:auto}
+  .ind-bg{inset:45% 0 0 0;opacity:.35}
+}
+@media(max-width:600px){
+  .brandtext b{font-size:22px}
+  h1{font-size:52px}
+  .hero p.copy{font-size:16px}
+  section{padding:78px 0}
+  .ind-list{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr;gap:0}
+  form,.panel{padding:23px}
+  footer .wrap{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div class="progress"></div>
+<header>
+  <a class="brand" href="#top">
+    <svg class="logo" viewBox="0 0 90 90" aria-label="TriCore logo">
+      <path d="M45 5 78 24 78 62 45 81 12 62 12 24Z" fill="none" stroke="#2589ff" stroke-width="7"/>
+      <path d="M18 17 45 2 72 17" fill="none" stroke="#f8fbff" stroke-width="7"/>
+      <path d="M23 29h35v10H46v30H35V39H23Z" fill="#f8fbff"/>
+      <path d="M53 40c4-5 10-8 17-8h3v10h-3c-8 0-13 6-13 13s5 13 13 13h3v10h-3c-15 0-24-10-24-23 0-6 2-11 7-15Z" fill="#2589ff"/>
+    </svg>
+    <div class="brandtext"><b>TRICORE</b><span>INDUSTRIAL</span></div>
+  </a>
+  <button class="menu" aria-label="Open menu">☰</button>
+  <nav>
+    <a href="#services">Services</a><a href="#industries">Industries</a><a href="#safety">Safety</a><a href="#about">About</a><a href="#contact" class="cta">Request a Quote</a>
+  </nav>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="hero-bg"></div><div class="grid"></div><div class="orb a"></div><div class="orb b"></div>
+  <div class="wrap hero-inner">
+    <div class="kicker reveal">Protect. Restore. Perform.</div>
+    <h1 class="reveal">Industrial Cleaning.<br>Protective Coatings.<br>Surface Restoration.</h1>
+    <p class="copy reveal">Professional surface solutions for commercial and industrial facilities across North and South Carolina.</p>
+    <div class="actions reveal"><a href="#contact" class="btn primary pulse">Request a Quote</a><a href="tel:+17044530615" class="btn secondary">Call (704) 453-0615</a></div>
+  </div>
+  <div class="strip">
+    <div class="reveal"><strong>Safety-Focused</strong><span>OSHA 30-trained leadership</span></div>
+    <div class="reveal"><strong>Responsive</strong><span>Clear communication and scheduling</span></div>
+    <div class="reveal"><strong>Built for Industry</strong><span>Commercial and industrial projects</span></div>
+  </div>
+</section>
+
+<div class="marquee"><div class="marquee-track">
+<span>Industrial Cleaning</span><b>•</b><span>Protective Coatings</span><b>•</b><span>Surface Restoration</span><b>•</b>
+<span>Industrial Cleaning</span><b>•</b><span>Protective Coatings</span><b>•</b><span>Surface Restoration</span><b>•</b>
+</div></div>
+
+<section id="services" class="services">
+  <div class="wrap">
+    <div class="kicker reveal">Our Services</div>
+    <div class="section-head"><h2 class="reveal">Surface solutions that protect your operation.</h2><p class="reveal">From heavy-duty cleaning to protective finishes, TriCore Industrial helps facilities maintain safer, cleaner, and longer-lasting surfaces.</p></div>
+    <div class="cards">
+      <article class="card reveal"><span class="num">01</span><div class="icon">💧</div><h3>Industrial Cleaning</h3><p>High-pressure cleaning and degreasing for equipment, concrete, exterior surfaces, warehouses, and industrial facilities.</p><ul><li>Industrial power washing</li><li>Concrete and facility cleaning</li><li>Equipment and exterior cleaning</li></ul></article>
+      <article class="card reveal"><span class="num">02</span><div class="icon">▣</div><h3>Protective Coatings</h3><p>Industrial painting and coating systems designed to protect surfaces from wear, moisture, and corrosion.</p><ul><li>Industrial painting</li><li>Protective and epoxy coatings</li><li>Corrosion-control applications</li></ul></article>
+      <article class="card reveal"><span class="num">03</span><div class="icon">◆</div><h3>Surface Restoration</h3><p>Preparation and restoration services that remove buildup, rust, stains, and failing finishes.</p><ul><li>Surface preparation</li><li>Rust and stain removal</li><li>Concrete and metal restoration</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section id="industries" class="industries">
+  <div class="ind-bg"></div>
+  <div class="wrap ind-inner">
+    <div><div class="kicker reveal">Industries Served</div><h2 class="reveal">Ready for demanding environments.</h2><p class="reveal" style="color:var(--muted)">Dependable execution and professional communication for property managers, facility teams, general contractors, and industrial operators.</p></div>
+    <div class="ind-list"><span class="reveal">Manufacturing Facilities</span><span class="reveal">Warehouses & Distribution</span><span class="reveal">Commercial Properties</span><span class="reveal">Food & Beverage Facilities</span><span class="reveal">General Contractors</span><span class="reveal">Industrial Equipment Areas</span></div>
+  </div>
+</section>
+
+<section id="safety" class="safety">
+  <div class="wrap safety-grid">
+    <div class="panel reveal"><div class="kicker">Safety & Quality</div><h2>Professional work starts with discipline.</h2><p style="color:var(--muted)">TriCore Industrial is led by OSHA 30-trained management. Proper PPE, clear communication, and jobsite awareness guide every project.</p></div>
+    <div class="points"><div class="reveal"><b>01</b><span>Pre-job planning and hazard awareness</span></div><div class="reveal"><b>02</b><span>Appropriate PPE and safe work practices</span></div><div class="reveal"><b>03</b><span>Clear coordination with clients and site teams</span></div><div class="reveal"><b>04</b><span>Quality-focused completion and cleanup</span></div></div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="wrap about-grid">
+    <div><div class="kicker reveal">About TriCore</div><h2 class="reveal">Built on family, discipline, and long-term value.</h2></div>
+    <div><p class="reveal">TriCore Industrial was created to provide dependable industrial cleaning, coating, and restoration services while building a lasting company for the next generation.</p><p class="reveal">The name <b>TriCore</b> represents Isabella, Valentina, and Sebastian—the three foundations behind the business.</p><p class="reveal">We focus on honest communication, professional presentation, and earning trust one project at a time.</p></div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap contact-grid">
+    <div><div class="kicker reveal">Request a Quote</div><h2 class="reveal">Tell us about your project.</h2><p class="reveal" style="color:var(--muted)">Share your service needs, project location, and preferred schedule.</p><p class="reveal"><b>(704) 453-0615</b><br>carlospineda@tricoreindustrial.com<br>Serving the Carolinas</p></div>
+    <form id="quote" class="reveal">
+      <div class="row"><label>Full name<input name="name" required></label><label>Company<input name="company"></label></div>
+      <div class="row"><label>Phone<input name="phone" required></label><label>Email<input type="email" name="email" required></label></div>
+      <label>Service<select name="service" required><option value="">Select a service</option><option>Industrial Cleaning</option><option>Protective Coatings</option><option>Surface Restoration</option><option>Multiple Services</option></select></label>
+      <label>Project details<textarea name="details" rows="5" required></textarea></label>
+      <button class="btn primary" type="submit">Send Quote Request</button>
+    </form>
+  </div>
+</section>
+</main>
+<footer><div class="wrap"><span>© <span id="year"></span> TriCore Industrial</span><span>Industrial Cleaning • Protective Coatings • Surface Restoration</span></div></footer>
+
+<script>
+const header=document.querySelector('header'),progress=document.querySelector('.progress');
+function onScroll(){const y=scrollY,max=document.documentElement.scrollHeight-innerHeight;header.classList.toggle('scrolled',y>30);progress.style.width=(max?y/max*100:0)+'%';document.querySelector('.hero-bg').style.transform='translateY('+(y*.07)+'px) scale(1.03)'}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');observer.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+const menu=document.querySelector('.menu'),nav=document.querySelector('nav');
+menu.onclick=()=>nav.classList.toggle('open');
+document.querySelectorAll('nav a').forEach(a=>a.onclick=()=>nav.classList.remove('open'));
+
+document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('quote').addEventListener('submit',e=>{
+e.preventDefault();const d=new FormData(e.target);
+const body=`Name: ${d.get('name')}
+Company: ${d.get('company')||'Not provided'}
+Phone: ${d.get('phone')}
+Email: ${d.get('email')}
+Service: ${d.get('service')}
+
+Project details:
+${d.get('details')}`;
+location.href=`mailto:carlospineda@tricoreindustrial.com?subject=${encodeURIComponent('Quote Request - '+d.get('service'))}&body=${encodeURIComponent(body)}`
+});
+</script>
+</body>
+</html>
